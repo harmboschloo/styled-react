@@ -1,5 +1,6 @@
 import {createElement} from 'react';
-import baseApi, {elements} from './index';
+import elements from './elements';
+import {global, local, component} from './base';
 
 const createFactory = type => {
   const factory = createElement.bind(null, type);
@@ -7,15 +8,17 @@ const createFactory = type => {
   return factory;
 };
 
-const componentFactory = factoryOrType => classNames => {
-  const type = factoryOrType.type || factoryOrType;
-  return createFactory(baseApi.component(type)(classNames));
-};
+const componentFactory = type => classNames =>
+  createFactory(component(type)(classNames));
+
+const factory = ({type}) =>
+  componentFactory(type)
 
 const api = {
-  global: baseApi.global,
-  local: baseApi.local,
-  component: componentFactory
+  global,
+  local,
+  factory,
+  componentFactory
 };
 
 elements.forEach(element => {

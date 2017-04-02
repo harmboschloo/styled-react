@@ -15,6 +15,10 @@
     {
       "actual": "../../../output/test/fixtures/styled-react-js-tags/given_tag4.css",
       "expected": "expected-output4.css"
+    },
+    {
+      "actual": "../../../output/test/fixtures/styled-react-js-tags/given_tag5.css",
+      "expected": "expected-output5.css"
     }
   ]
 }

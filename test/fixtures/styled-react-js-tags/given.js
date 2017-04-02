@@ -4,8 +4,12 @@ styled.div`
   display: none;
 `;
 
-styled.component(() => null)`
+styled.factory(() => null)`
   display: inline-block;
+`;
+
+styled.componentFactory(() => null)`
+  display: inherit;
 `;
 
 styled.local`
