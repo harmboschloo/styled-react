@@ -1,6 +1,6 @@
 {
   "name": "styled-react",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Style react components in js through tagged template literals. Use with babel and webpack.",
   "files": [
     "lib",
