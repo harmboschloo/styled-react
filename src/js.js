@@ -11,18 +11,14 @@ const createFactory = type => {
 const componentFactory = type => classNames =>
   createFactory(component(type)(classNames));
 
-const factory = ({type}) =>
-  componentFactory(type)
-
-const api = {
-  global,
-  local,
-  factory,
-  componentFactory
-};
+const styled = ({type}) => componentFactory(type);
 
 elements.forEach(element => {
-  api[element] = componentFactory(element);
+  styled[element] = componentFactory(element);
 });
 
-export default api;
+styled.global = global;
+styled.local = local;
+styled.component = componentFactory;
+
+export default styled;

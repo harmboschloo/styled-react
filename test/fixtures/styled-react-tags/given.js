@@ -4,7 +4,7 @@ styled.div`
   display: none;
 `;
 
-styled.component(() => null)`
+styled(() => null)`
   display: inline-block;
 `;
 

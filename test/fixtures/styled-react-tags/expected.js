@@ -6,7 +6,7 @@ import styled from 'styled-react';
 
 styled.div(_tag);
 
-styled.component(() => null)(_tag2);
+styled(() => null)(_tag2);
 
 styled.local(_tag3);
 

@@ -9,7 +9,7 @@
     "js.js"
   ],
   "dependencies": {
-    "extract-tags": "^0.2.0"
+    "extract-tags": "^0.3.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.0",

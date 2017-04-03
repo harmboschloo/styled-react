@@ -4,11 +4,11 @@ styled.div`
   display: none;
 `;
 
-styled.factory(() => null)`
+styled(() => null)`
   display: inline-block;
 `;
 
-styled.componentFactory(() => null)`
+styled.component(() => null)`
   display: inherit;
 `;
 

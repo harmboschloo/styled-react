@@ -2,15 +2,13 @@ import {createElement} from 'react';
 import elements from './elements';
 import {global, local, component} from './base';
 
-
-const api = {
-  global,
-  local,
-  component
-};
+const styled = type => component(type);
 
 elements.forEach(element => {
-  api[element] = component(element);
+  styled[element] = component(element);
 });
 
-export default api;
+styled.global = global;
+styled.local = local;
+
+export default styled;

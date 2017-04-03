@@ -7,9 +7,9 @@ import styled from 'styled-react/js';
 
 styled.div(_tag);
 
-styled.factory(() => null)(_tag2);
+styled(() => null)(_tag2);
 
-styled.componentFactory(() => null)(_tag3);
+styled.component(() => null)(_tag3);
 
 styled.local(_tag4);
 
