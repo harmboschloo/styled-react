@@ -1,19 +1,34 @@
-import fp from "path";
-import { createPlugin } from "extract-tags/babel-plugin";
+import path from "path";
+import toHash from "string-hash";
+import hashToString from "hash-to-string";
+import { createPlugin } from "babel-plugin-extract-tags";
+
+const characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const toClassName = hashToString(characters);
+
+const taggedCallback = ({ tag, tagOptions, taggedContent }) => {
+  const { outputPath, outputFileExtension } = tagOptions;
+  const contentHash = toHash(taggedContent);
+  if (tag.member === "global") {
+    const outputContent = taggedContent;
+    const filename = `global-${contentHash}.${outputFileExtension}`;
+    const outputFilePath = path.join(outputPath, filename);
+    return { outputContent, outputFilePath };
+  } else {
+    const className = toClassName(contentHash);
+    const outputContent = `.${className} {${taggedContent}}`;
+    const filename = `${className}-${contentHash}.${outputFileExtension}`;
+    const outputFilePath = path.join(outputPath, filename);
+    return { outputContent, outputFilePath };
+  }
+};
 
 const options = {
   taggerModules: ["styled-react", "styled-react/js"],
   outputFileExtension: "css",
-  outputPath: fp.join(__dirname, "../output"),
-  taggedPrefix: ":local(.className) {",
-  taggedSuffix: "}",
-  taggerMembers: {
-    global: {
-      taggedPrefix: "",
-      taggedSuffix: ""
-    },
-    "*": {}
-  }
+  outputPath: path.join(__dirname, "../output"),
+  taggerMembers: { "*": {} },
+  taggedCallback
 };
 
 export default createPlugin(options);

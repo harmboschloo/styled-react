@@ -1,19 +1,19 @@
 {
   "outputs": [
     {
-      "actual": "../../../output/test/fixtures/styled-react-tags/given_tag.css",
+      "actual": "../../../output/eFpbHm-2137248788.css",
       "expected": "expected-output.css"
     },
     {
-      "actual": "../../../output/test/fixtures/styled-react-tags/given_tag2.css",
+      "actual": "../../../output/hDWyYN-3267940819.css",
       "expected": "expected-output2.css"
     },
     {
-      "actual": "../../../output/test/fixtures/styled-react-tags/given_tag3.css",
+      "actual": "../../../output/UutAB-346654231.css",
       "expected": "expected-output3.css"
     },
     {
-      "actual": "../../../output/test/fixtures/styled-react-tags/given_tag4.css",
+      "actual": "../../../output/global-2551447818.css",
       "expected": "expected-output4.css"
     }
   ]
