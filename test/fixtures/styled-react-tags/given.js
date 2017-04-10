@@ -1,4 +1,4 @@
-import styled from 'styled-react';
+import styled from "styled-react";
 
 styled.div`
   display: none;

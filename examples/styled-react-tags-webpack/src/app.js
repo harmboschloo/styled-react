@@ -1,6 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import styled from 'styled-react';
+import React from "react";
+import ReactDOM from "react-dom";
+import styled from "styled-react";
 
 styled.global`
   div {
@@ -19,5 +19,5 @@ ReactDOM.render(
     <div>Hello styled react tags</div>
     <Works>Works!</Works>
   </div>,
-  document.getElementById('root')
+  document.getElementById("root")
 );

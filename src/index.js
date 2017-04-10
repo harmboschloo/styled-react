@@ -1,6 +1,6 @@
-import {createElement} from 'react';
-import elements from './elements';
-import {global, local, component} from './base';
+import { createElement } from "react";
+import elements from "./elements";
+import { global, local, component } from "./base";
 
 const styled = type => component(type);
 
