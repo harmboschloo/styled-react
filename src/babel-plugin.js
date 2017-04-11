@@ -6,20 +6,22 @@ import { createPlugin } from "babel-plugin-extract-tags";
 const characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const toClassName = hashToString(characters);
 
-const taggedCallback = ({ tag, tagOptions, taggedContent }) => {
+const taggedCallback = ({ tag, tagOptions, taggedContent }, types) => {
   const { outputPath, outputFileExtension } = tagOptions;
   const contentHash = toHash(taggedContent);
   if (tag.member === "global") {
     const outputContent = taggedContent;
     const filename = `global-${contentHash}.${outputFileExtension}`;
     const outputFilePath = path.join(outputPath, filename);
-    return { outputContent, outputFilePath };
+    const tagArguments = [];
+    return { tagArguments, outputContent, outputFilePath };
   } else {
     const className = toClassName(contentHash);
     const outputContent = `.${className} {${taggedContent}}`;
     const filename = `${className}-${contentHash}.${outputFileExtension}`;
     const outputFilePath = path.join(outputPath, filename);
-    return { outputContent, outputFilePath };
+    const tagArguments = [types.stringLiteral(className)];
+    return { tagArguments, outputContent, outputFilePath };
   }
 };
 
